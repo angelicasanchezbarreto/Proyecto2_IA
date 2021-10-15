@@ -6,10 +6,13 @@ import pandas as pd
 import math
 
 def normalize_data(data):
-    return (data - np.min(data)) / (np.max(data) - np.min(data))
+    # Assuming same lines from your example
+    cols_to_norm = ['forehead_width_cm','forehead_height_cm']
+    data[cols_to_norm] = data[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+    return data
 
 def update_gender(df):
-    df.loc[df["gender"] == 'Male', "gender"] = 0
+    df.loc[df["gender"] == 'Male', "gender"] = -1
     df.loc[df["gender"] == 'Female', "gender"] = 1
 
 
@@ -32,6 +35,7 @@ def normalize_features(x_features):
 def read_file_columns(file = 'gender_classification.csv'):
     data = pd.read_csv(file)
     update_gender(data)
+    data = normalize_data(data)
     return data
 
 def get_x_y(df):

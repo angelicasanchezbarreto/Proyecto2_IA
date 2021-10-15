@@ -17,12 +17,12 @@ def algorithm_svm1(epochs,num_tests,k=7):
     alpha_nums = []
     const_nums = []
     for i in range(num_tests):
-        """ alpha = random.uniform(0.01,0.05)
+        alpha = random.uniform(0.01,0.05)
         alpha_nums.append(alpha) 
         constant = random.uniform(0.5,1.5)
-        const_nums.append(constant) """
-        alpha = 0.05
-        constant = 1
+        const_nums.append(constant)
+        #alpha = 0.05
+        #constant = 1
         error_train_list,error_valid_list = svm.regression(
             x_train_features,y_train_values,x_valid_features,y_valid_values,alpha,epochs,constant,k)
         
@@ -30,4 +30,4 @@ def algorithm_svm1(epochs,num_tests,k=7):
 
     #a.save_files(alpha_nums,const_nums)
 
-algorithm_svm1(100, 5)
+algorithm_svm1(1000, 3)
