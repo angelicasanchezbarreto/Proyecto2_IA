@@ -1,7 +1,4 @@
-import csv
 from os import X_OK
-import numpy as np
-from numpy.core.numeric import True_
 import pandas as pd
 import math
 
@@ -11,9 +8,16 @@ def normalize_data(data):
     data[cols_to_norm] = data[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
     return data
 
-def update_gender(df):
-    df.loc[df["gender"] == 'Male', "gender"] = -1
-    df.loc[df["gender"] == 'Female', "gender"] = 1
+def update_gender(df,method):
+    if method=="svm":
+        df.loc[df["gender"] == 'Male', "gender"] = -1
+        df.loc[df["gender"] == 'Female', "gender"] = 1
+    elif method=="logistic":
+        df.loc[df["gender"] == 'Male', "gender"] = 0
+        df.loc[df["gender"] == 'Female', "gender"] = 1
+    else:
+        df.loc[df["gender"] == 'Male', "gender"] = 1
+        df.loc[df["gender"] == 'Female', "gender"] = 2
 
 
 def plot_data(data_x,data_y):
@@ -32,9 +36,9 @@ def normalize_features(x_features):
 # MAIN FUNCTIONS #
 ##################
 
-def read_file_columns(file = 'gender_classification.csv'):
+def read_file_columns(method,file = 'gender_classification.csv'):
     data = pd.read_csv(file)
-    update_gender(data)
+    update_gender(data,method)
     data = normalize_data(data)
     return data
 

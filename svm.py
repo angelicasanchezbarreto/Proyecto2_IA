@@ -1,8 +1,5 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from numpy import random
-import math
 
 def h(w, x, b):
     a = np.dot(w, x) + b
@@ -17,7 +14,6 @@ def error(w, x, y, b, const):
         err += max(0, 1 - y.iloc[i] * h(w, x.iloc[i].tolist(), b))
 
     return grad + const*err
-
 
 def derivates(y, w, x, b, const, alpha):
     n = len(w)
