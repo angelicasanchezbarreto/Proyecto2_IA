@@ -1,5 +1,15 @@
 import matplotlib.pyplot as plt
 
+def svm(x_train,y_train,support_vectors):
+    plt.scatter(x_train[:,0], y_train[:,0])
+    plt.title('Linearly separable data')
+    """ plt.scatter(support_vectors[:,0], support_vectors[:,7], color='red')
+    plt.title('Linearly separable data with support vectors') """
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.show()
+
+
 font1 = {'family':'serif','size':20}
 font2 = {'family':'serif','size':15}
 
