@@ -19,11 +19,12 @@ class DecisionNode{
 		DecisionNode *left;
 		DecisionNode *right;
 		double_matrix data;
-		int threshold; //split
+		double threshold; //split
 		int feature; // which column has best split
 		vector<pair<double_matrix,double_matrix>> splits;
-		vector<int> middle_values;
+		vector<double> middle_values;
 		string method;
+		vector<vector<int>> confusion_matrix;
 
 		void set_best_feature();
 		double_matrix sort_column(int column_index);
@@ -34,37 +35,15 @@ class DecisionNode{
 		double information_gain(pair<double_matrix,double_matrix> branches);
 		vector<pair<double,double>> get_probabilities(double_matrix branch);
 		pair<double_matrix,double_matrix> set_branches(int middle, double_matrix sorted_column,int column_index);
-	
+
 	public:
 		DecisionNode(double_matrix data,int id,string method);
 		void print_node(int spaces);
 		void printNodesConnections(fstream &file);
-		void printAllNodes(fstream &file);
+		void printAllNodes(fstream &file, vector<string> headers);
+		void calculate_error(vector<double> &errors);
 };
 
-void DecisionNode::printNodesConnections(fstream &file){
-	if(this->left != nullptr){
-		file << "\"" << this << "\"->";
-		file << "\"" << left << "\";\n"; 
-		this->left->printNodesConnections(file);
-	}
-	if(this->right != nullptr){
-		file << "\"" << this << "\"->";
-		file << "\"" << right << "\";\n"; 
-		this->right->printNodesConnections(file);
-	}
-}
-
-void DecisionNode::printAllNodes(fstream &file){
-	file << "\"" << this << "\" [\n";
-	file << "\tlabel = \"" << this->id <<"\\n column: "<< this->feature << "\\n threshold: "<< this->threshold << " \"\n]\n";
-	if(this->left != nullptr){
-		this->left->printAllNodes(file);
-	}
-	if(this->right != nullptr){
-		this->right->printAllNodes(file);
-	}
-}
 
 DecisionNode::DecisionNode(double_matrix dataset,int id,string method){
 	this->data = dataset;
@@ -77,6 +56,27 @@ DecisionNode::DecisionNode(double_matrix dataset,int id,string method){
 	set_best_feature();
 }
 
+void DecisionNode::calculate_error(vector<double> &errors){
+	int true_positive, true_negative, false_positive, false_negative;
+	int right_error=0, left_error=0;
+	if(this->left || this->right){
+		int left_size = this->splits[this->feature].first.size();
+		int right_size = this->splits[this->feature].second.size();
+		for(int i=0; i<left_size; i++){
+			if(this->splits[this->feature].first[columns-1][i] =! 0)
+				left_error++;
+		}
+		for(int i=0; i<right_size; i++){
+			if(this->splits[this->feature].second[columns-1][i] =! 1)
+				right_error++;
+		}
+	}
+	errors.push_back(right_error+left_error);
+	if(this->left) this->left->calculate_error(errors);
+	if(this->right) this->right->calculate_error(errors);
+	
+}
+
 void DecisionNode::set_best_feature(){
 	vector<double> gini_gains;
 	vector<double> information_gains;
@@ -84,7 +84,7 @@ void DecisionNode::set_best_feature(){
 		double_matrix sorted_column = sort_column(i);
 		double min = sorted_column[0][i];
 		double max = sorted_column[rows-1][i];
-		int middle = max-min/2;
+		double middle = (double) (max-min)/2.0;
 		this->middle_values.push_back(middle);
 		pair<double_matrix,double_matrix> branches = set_branches(middle,sorted_column,i);
 		this->splits.push_back(branches);
@@ -198,7 +198,7 @@ void DecisionNode::split(vector<double> gains){
         }
     }
 	
-	this->feature = max_index+1;
+	this->feature = max_index;
 	this->threshold = this->middle_values[max_index];
 
 	//if all gains==0 or all splits are the same
@@ -223,6 +223,32 @@ void DecisionNode::print_node(int spaces){
 	if(this->right){
 		cout << setw(this->right->id*spaces) << "Right child: ";
 		this->right->print_node(spaces);
+	}
+}
+
+
+
+void DecisionNode::printNodesConnections(fstream &file){
+	if(this->left != nullptr){
+		file << "\"" << this << "\"->";
+		file << "\"" << left << "\";\n"; 
+		this->left->printNodesConnections(file);
+	}
+	if(this->right != nullptr){
+		file << "\"" << this << "\"->";
+		file << "\"" << right << "\";\n"; 
+		this->right->printNodesConnections(file);
+	}
+}
+
+void DecisionNode::printAllNodes(fstream &file, vector<string> headers){
+	file << "\"" << this << "\" [\n";
+	file << "\tlabel = \"" << this->id <<"\\n column: "<< headers[this->feature] << "\\n threshold: "<< this->threshold << " \"\n]\n";
+	if(this->left != nullptr){
+		this->left->printAllNodes(file, headers);
+	}
+	if(this->right != nullptr){
+		this->right->printAllNodes(file,headers);
 	}
 }
 
