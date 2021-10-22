@@ -28,9 +28,12 @@ def derivates(y, w, x, b,k):
     for i in range(k):
         for j in range(n):
             x_temp = np.array(x.loc[j])
-            dw[i] += (e ** h(w, x_temp, b) * w[i]) / (1 + e ** (h(w, x_temp, b)))
-        db += (e ** h(w, x_temp, b)) / (1 + e ** (h(w, x_temp, b)))
-    return dw, db
+            #dw[i] += (e ** h(w, x_temp, b) * w[i]) / (1 + e ** (h(w, x_temp, b)))
+            dw[i] += (h(w, x_temp, b) - y[i])*x_temp[i]
+        #db += (e ** h(w, x_temp, b)) / (1 + e ** (h(w, x_temp, b)))
+        dw[i] /= n
+        db += h(w, x_temp, b) - y[i]
+    return dw, db/n
 
 def update(w_values,b,dw_values,db,alpha,k):
     w_new = [w_values[j] - alpha*dw_values[j] for j in range(k)]

@@ -10,6 +10,7 @@
 using namespace std;
 
 typedef vector<vector<double>> double_matrix;
+typedef vector<vector<int>> int_matrix;
 
 class DecisionNode{
 	private:
@@ -24,7 +25,8 @@ class DecisionNode{
 		vector<pair<double_matrix,double_matrix>> splits;
 		vector<double> middle_values;
 		string method;
-		vector<vector<int>> confusion_matrix;
+		
+		friend class DecisionTree;
 
 		void set_best_feature();
 		double_matrix sort_column(int column_index);
@@ -41,7 +43,7 @@ class DecisionNode{
 		void print_node(int spaces);
 		void printNodesConnections(fstream &file);
 		void printAllNodes(fstream &file, vector<string> headers);
-		void calculate_error(vector<double> &errors);
+		void calculate_error(int_matrix confusion_matrix, double_matrix full_data, int example_index);
 };
 
 
@@ -56,25 +58,28 @@ DecisionNode::DecisionNode(double_matrix dataset,int id,string method){
 	set_best_feature();
 }
 
-void DecisionNode::calculate_error(vector<double> &errors){
-	int true_positive, true_negative, false_positive, false_negative;
-	int right_error=0, left_error=0;
-	if(this->left || this->right){
-		int left_size = this->splits[this->feature].first.size();
-		int right_size = this->splits[this->feature].second.size();
-		for(int i=0; i<left_size; i++){
-			if(this->splits[this->feature].first[columns-1][i] =! 0)
-				left_error++;
-		}
-		for(int i=0; i<right_size; i++){
-			if(this->splits[this->feature].second[columns-1][i] =! 1)
-				right_error++;
+void DecisionNode::calculate_error(int_matrix confusion_matrix, double_matrix full_data, int example_index){
+	double column_value = full_data[example_index][this->feature];
+	if(column_value <= this->threshold){
+		if(this->left && this->left->left && this->left->right)
+			this->left->calculate_error(confusion_matrix,full_data,example_index);
+		else{
+			if(data[example_index][columns-1]==0)
+				confusion_matrix[1][1]++;
+			else
+				confusion_matrix[0][1]++;
 		}
 	}
-	errors.push_back(right_error+left_error);
-	if(this->left) this->left->calculate_error(errors);
-	if(this->right) this->right->calculate_error(errors);
-	
+	else{
+		if(this->right && this->right->left && this->right->right)
+			this->right->calculate_error(confusion_matrix,full_data,example_index);
+		else{
+			if(data[example_index][columns-1]==1)
+				confusion_matrix[0][0]++;
+			else
+				confusion_matrix[1][0]++;
+		}
+	}
 }
 
 void DecisionNode::set_best_feature(){
@@ -167,10 +172,10 @@ double DecisionNode::information_entropy(double_matrix branch){
 
 vector<pair<double,double>> DecisionNode::get_probabilities(double_matrix branch){
 	int size = branch.size();
-	map<float,int> freq;
+	map<double,int> freq;
     int i = 0;
     while (i<size){
-		float current = data[i][columns-1];
+		float current = branch[i][columns-1];
 		if(freq.empty() || freq.find(current)==freq.end())
 			freq.insert({current,1});
 		else

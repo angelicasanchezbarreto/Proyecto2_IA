@@ -1,5 +1,6 @@
 import logistic_regression as log
 import svm as svm
+import knn as knn
 import data as d
 import aux as a
 import random
@@ -53,3 +54,20 @@ def algorithm_logistic1(epochs,num_tests,k=7):
         a.plot_error(epochs,error_train_list,error_valid_list,f"logistic{i}")
 
 algorithm_logistic1(500, 1)
+
+#############################
+############ KNN ############
+#############################
+
+df = d.read_file_columns("logistic")
+
+train_df,valid_df,test_df = d.split_groups(df)
+
+train_df = train_df.to_numpy()
+valid_df = valid_df.to_numpy()
+test_df = test_df.to_numpy()
+
+def algorithm_knn(num_tests):
+    for i in range(num_tests):
+        number_errors = knn.KNN(train_df, valid_df, 4)
+    return number_errors
