@@ -66,3 +66,20 @@ def split_groups(df):
             c += 1
             
     return train_df,valid_df,test_df
+
+def cross_validation(df, exp, num_exp):
+    df = df.sample(frac = 1).reset_index(drop = True)
+    df_exp = []
+    cont = 0
+    df_size = math.floor(len(df) / 10)
+    for i in range(exp):
+        if i == (exp - 1):
+            df_temp = df.iloc[cont : len(df)]
+            df_exp.append(df_temp.reset_index())
+        else:   
+            df_temp = df.iloc[cont : (cont + df_size)]
+            cont += df_size
+            df_exp.append(df_temp.reset_index())
+    df_test = df_exp.pop(num_exp)
+    df_exp = pd.concat(df_exp, ignore_index = True)
+    return df_exp, df_test

@@ -4,6 +4,10 @@ import knn as knn
 import data as d
 import aux as a
 import random
+import numpy as np
+from scipy import stats
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 #################
 ###### SVM ######
@@ -53,23 +57,30 @@ def algorithm_logistic1(epochs,num_tests,k=7):
         
         a.plot_error(epochs,error_train_list,error_valid_list,f"logistic{i}")
 
-algorithm_logistic1(500, 1)
+#algorithm_logistic1(500, 1)
 
 #############################
 ############ KNN ############
 #############################
 
-df = d.read_file_columns("logistic")
+def algorithm_knn(neighbors):
+    experiments = 10
+    errors_list = []
+    for i in range(experiments):
+        df_exp, df_test = d.cross_validation(df, experiments, i)
+        number_errors = knn.knn(df_exp.to_numpy()[:,1:], df_test.to_numpy()[:,1:], neighbors)
+        errors_list.append(number_errors)
+    return errors_list
 
-train_df,valid_df,test_df = d.split_groups(df)
+errors = algorithm_knn(5)
+print(np.var(errors))
+print(np.mean(errors))
 
-train_df = train_df.to_numpy()
-valid_df = valid_df.to_numpy()
-test_df = test_df.to_numpy()
+sns.kdeplot(errors, shade = True)
+plt.show()
 
-def algorithm_knn(num_tests):
-    for i in range(num_tests):
-        number_errors = knn.knn(train_df, valid_df, 4)
-    return number_errors
-
-algorithm_knn(5)
+""" sns.distplot(x = errors, rug=True,
+             axlabel="Something ?",
+             kde_kws=dict(label="kde"),
+             rug_kws=dict(height=.2, linewidth=2, color="C1", label="data"))
+plt.legend(); """
