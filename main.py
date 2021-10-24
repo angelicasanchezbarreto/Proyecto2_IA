@@ -69,5 +69,7 @@ test_df = test_df.to_numpy()
 
 def algorithm_knn(num_tests):
     for i in range(num_tests):
-        number_errors = knn.KNN(train_df, valid_df, 4)
+        number_errors = knn.knn(train_df, valid_df, 4)
     return number_errors
+
+algorithm_knn(5)

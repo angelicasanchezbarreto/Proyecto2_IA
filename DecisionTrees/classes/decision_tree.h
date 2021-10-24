@@ -8,9 +8,9 @@ class DecisionTree{
 		string method; //gini or information gain
 		vector<string> headers;
 		int_matrix confusion_matrix;
-		double_matrix data;
+		float_matrix data;
 	public:
-		double_matrix parse_data(string filename);
+		float_matrix parse_data(string filename);
 		void print_tree(int spaces);
 		DecisionTree(string filename,string method);
 		void generatePDF();
@@ -41,8 +41,8 @@ void DecisionTree::print_tree(int spaces){
 	this->root->print_node(spaces);
 }
 
-double_matrix DecisionTree::parse_data(string filename){
-	double_matrix data;
+float_matrix DecisionTree::parse_data(string filename){
+	float_matrix data;
 	fstream file;
 	file.open(filename, ios::in);
 	string line;
@@ -56,13 +56,21 @@ double_matrix DecisionTree::parse_data(string filename){
 		headers.push_back(token);
 	}
 
+	headers.push_back("Male");
+	headers.push_back("Female");
+
 	while(getline(file,line)){
-		vector<double> single_row;
+		vector<long> single_row;
 		istringstream ss(line);
 
 		while(getline(ss, token, ',')) {
 			if(isdigit(token[0])){
-				double value = floorf(stod(token) * 100) / 100;
+				//float value = floorf(stod(token) * 100) / 100;
+				//float value = roundoff(stof(token),2);
+				stringstream out;
+				out << fixed << setprecision(2) << stof(token);
+				long value = stof(out.str());
+				//long value = static_cast<long>(stof(token));
 				single_row.push_back(value);
 			} else {
 				if(token == "Male\r")		
