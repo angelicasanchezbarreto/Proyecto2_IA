@@ -60,17 +60,12 @@ float_matrix DecisionTree::parse_data(string filename){
 	headers.push_back("Female");
 
 	while(getline(file,line)){
-		vector<long> single_row;
+		vector<double> single_row;
 		istringstream ss(line);
 
 		while(getline(ss, token, ',')) {
 			if(isdigit(token[0])){
-				//float value = floorf(stod(token) * 100) / 100;
-				//float value = roundoff(stof(token),2);
-				stringstream out;
-				out << fixed << setprecision(2) << stof(token);
-				long value = stof(out.str());
-				//long value = static_cast<long>(stof(token));
+				float value = floorf(stod(token) * 100) / 100;
 				single_row.push_back(value);
 			} else {
 				if(token == "Male\r")		
@@ -85,6 +80,8 @@ float_matrix DecisionTree::parse_data(string filename){
 	return data;
 }
 
+
+
 void DecisionTree::get_confusion_matrix(){
 	int true_positive, true_negative, false_positive, false_negative;
 	int right_error=0, left_error=0;
@@ -95,8 +92,13 @@ void DecisionTree::get_confusion_matrix(){
 	for(int i=0; i<this->root->rows; i++){
 		this->root->calculate_error(confusion_matrix,data,i);
 	}
-	
-	cout << " "<< "F" << " " << "M" << endl;
-	cout << "F" << confusion_matrix[0][0] << " " << confusion_matrix[0][1] << endl;
-	cout << "M" << confusion_matrix[1][0] << " " << confusion_matrix[1][1] << endl;
+	cout << "Confusion Matrix: " << endl;
+	cout << " "<< "  F  " << " " << "  M  " << endl;
+	cout << "F  " << confusion_matrix[0][0] << " " << confusion_matrix[0][1] << endl;
+	cout << "M  " << confusion_matrix[1][0] << " " << confusion_matrix[1][1] << endl;
+	cout << endl;
+
+	int numerator = confusion_matrix[0][0]+confusion_matrix[1][1];
+	double denominator = confusion_matrix[0][0]+confusion_matrix[0][1]+confusion_matrix[1][0]+confusion_matrix[1][1];
+	cout << "Accuracy: " << numerator/denominator << endl;
 }

@@ -1,254 +1,254 @@
 digraph G
 {
-"0x5564e9fc48b0" [
-	label = "0\n column: nose_wide\n threshold: 0.5 "
+"0x558b2b2bd8b0" [
+	label = "0\nnose_wide <= 0.5\n gini/entropy: 0.287356\n samples: 5001 "
 ]
-"0x5564ea3e84f0" [
-	label = "1\n column: lips_thin\n threshold: 0.5 "
+"0x558b2b6e1510" [
+	label = "1\nlips_thin <= 0.5\n gini/entropy: 0.0808362\n samples: 2531 "
 ]
-"0x5564ea6201d0" [
-	label = "2\n column: distance_nose_to_lip_long\n threshold: 0.5 "
+"0x558b2b9191f0" [
+	label = "2\ndistance_nose_to_lip_long <= 0.5\n gini/entropy: 0.00335218\n samples: 1980 "
 ]
-"0x5564ea81bac0" [
-	label = "3\n column: nose_long\n threshold: 0.5 "
+"0x558b2bb14b80" [
+	label = "3\nnose_long <= 0.5\n gini/entropy: 6.33254e-05\n samples: 1710 "
 ]
-"0x5564ea8e07a0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2bbd9860" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 1.35924e-07\n samples: 1475 "
 ]
-"0x5564ea9e6920" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bcdf9e0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 190 "
 ]
-"0x5564eaae0630" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bdd96f0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 1285 "
 ]
-"0x5564eab79190" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2be722a0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 7.83794e-05\n samples: 235 "
 ]
-"0x5564eaa3be70" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bd34f30" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 28 "
 ]
-"0x5564ea7ad720" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2baa67e0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 207 "
 ]
-"0x5564ea9a8c80" [
-	label = "3\n column: nose_long\n threshold: 0.5 "
+"0x558b2bca1d40" [
+	label = "3\nnose_long <= 0.5\n gini/entropy: 0.0646816\n samples: 270 "
 ]
-"0x5564eabca580" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2bad6bf0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 1.18533e-06\n samples: 208 "
 ]
-"0x5564eac56180" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bf4f330" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 39 "
 ]
-"0x5564eac5cba0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bf55da0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 169 "
 ]
-"0x5564eac62360" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2bf5b560" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.000135141\n samples: 62 "
 ]
-"0x5564eac66950" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bf5fc40" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 7 "
 ]
-"0x5564eac853e0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2bf77af0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 55 "
 ]
-"0x5564ea5ff1b0" [
-	label = "2\n column: distance_nose_to_lip_long\n threshold: 0.5 "
+"0x558b2b8f83b0" [
+	label = "2\ndistance_nose_to_lip_long <= 0.5\n gini/entropy: 0.278117\n samples: 551 "
 ]
-"0x5564ea61de30" [
-	label = "3\n column: nose_long\n threshold: 0.5 "
+"0x558b2b916ea0" [
+	label = "3\nnose_long <= 0.5\n gini/entropy: 0.0648217\n samples: 270 "
 ]
-"0x5564ead152a0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c00e630" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 5.92426e-05\n samples: 196 "
 ]
-"0x5564ead40f00" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c03a2e0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 22 "
 ]
-"0x5564ead42d20" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c03c120" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 174 "
 ]
-"0x5564ead296e0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c022ac0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.00159373\n samples: 74 "
 ]
-"0x5564ead74ba0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c06dfd0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 8 "
 ]
-"0x5564ead72c10" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c06bf50" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 66 "
 ]
-"0x5564ead70770" [
-	label = "3\n column: nose_long\n threshold: 0.5 "
+"0x558b2b9291a0" [
+	label = "3\nnose_long <= 0.5\n gini/entropy: 0.0736582\n samples: 281 "
 ]
-"0x5564ea51de50" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2bf88250" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.0328612\n samples: 73 "
 ]
-"0x5564eadc4a20" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c0c0010" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 15 "
 ]
-"0x5564eadd1760" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c0cb1a0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 58 "
 ]
-"0x5564eada09f0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c0d46f0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 4.92103e-05\n samples: 208 "
 ]
-"0x5564eae16a90" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c110070" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 22 "
 ]
-"0x5564eae0fa60" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c109040" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 186 "
 ]
-"0x5564eae26910" [
-	label = "1\n column: nose_long\n threshold: 0.5 "
+"0x558b2c11ff60" [
+	label = "1\nnose_long <= 0.5\n gini/entropy: 0.0790708\n samples: 2470 "
 ]
-"0x5564eaeface0" [
-	label = "2\n column: distance_nose_to_lip_long\n threshold: 0.5 "
+"0x558b2c1f4380" [
+	label = "2\ndistance_nose_to_lip_long <= 0.5\n gini/entropy: 0.298017\n samples: 509 "
 ]
-"0x5564eaf683f0" [
-	label = "3\n column: lips_thin\n threshold: 0.5 "
+"0x558b2c261a90" [
+	label = "3\nlips_thin <= 0.5\n gini/entropy: 0.0761068\n samples: 262 "
 ]
-"0x5564eb0a7ca0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c3a1430" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.00010952\n samples: 212 "
 ]
-"0x5564eb0fc970" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c3f60b0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 19 "
 ]
-"0x5564eb0eadf0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c3e4530" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 193 "
 ]
-"0x5564eb0c4dd0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c2794b0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.0122897\n samples: 50 "
 ]
-"0x5564eb11f750" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c419120" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 7 "
 ]
-"0x5564eb117cb0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c3e38a0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 43 "
 ]
-"0x5564eb120610" [
-	label = "3\n column: lips_thin\n threshold: 0.5 "
+"0x558b2c419ef0" [
+	label = "3\nlips_thin <= 0.5\n gini/entropy: 0.0560954\n samples: 247 "
 ]
-"0x5564eb148690" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c43bae0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.00489908\n samples: 54 "
 ]
-"0x5564eb161990" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c45b350" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 12 "
 ]
-"0x5564eb161dc0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c45b7a0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 42 "
 ]
-"0x5564eb1770b0" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c470ac0" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 6.69353e-05\n samples: 193 "
 ]
-"0x5564eb1a9970" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c4a32e0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 29 "
 ]
-"0x5564eb19a0c0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c493a30" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 164 "
 ]
-"0x5564eb1dda00" [
-	label = "2\n column: distance_nose_to_lip_long\n threshold: 0.5 "
+"0x558b2c4d73c0" [
+	label = "2\ndistance_nose_to_lip_long <= 0.5\n gini/entropy: 0.00196145\n samples: 1961 "
 ]
-"0x5564eb240b50" [
-	label = "3\n column: lips_thin\n threshold: 0.5 "
+"0x558b2c53a510" [
+	label = "3\nlips_thin <= 0.5\n gini/entropy: 0.0433887\n samples: 264 "
 ]
-"0x5564eb2efe60" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c5e9870" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.00219089\n samples: 55 "
 ]
-"0x5564eb412ed0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c5eb1c0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 4 "
 ]
-"0x5564eb2f30b0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c55dc60" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 51 "
 ]
-"0x5564eb2f2a20" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c717110" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.00010868\n samples: 209 "
 ]
-"0x5564eb369070" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c662b20" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 27 "
 ]
-"0x5564eb43a660" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c734020" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 182 "
 ]
-"0x5564eb2406a0" [
-	label = "3\n column: lips_thin\n threshold: 0.5 "
+"0x558b2c53a060" [
+	label = "3\nlips_thin <= 0.5\n gini/entropy: 6.4028e-05\n samples: 1697 "
 ]
-"0x5564eb493d60" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c78d860" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 0.000124149\n samples: 234 "
 ]
-"0x5564eb62be90" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c925990" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 41 "
 ]
-"0x5564eb52e5f0" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c8280f0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 193 "
 ]
-"0x5564eb590d20" [
-	label = "4\n column: long_hair\n threshold: 0.5 "
+"0x558b2c88a870" [
+	label = "4\nlong_hair <= 0.5\n gini/entropy: 1.32759e-07\n samples: 1463 "
 ]
-"0x5564eb68d900" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c9874d0" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 182 "
 ]
-"0x5564eb6f6690" [
-	label = "5\n column: long_hair\n threshold: 0 "
+"0x558b2c9f0260" [
+	label = "5\nlong_hair <= 0\n gini/entropy: 0\n samples: 1281 "
 ]
-"0x5564e9fc48b0"->"0x5564ea3e84f0";
-"0x5564ea3e84f0"->"0x5564ea6201d0";
-"0x5564ea6201d0"->"0x5564ea81bac0";
-"0x5564ea81bac0"->"0x5564ea8e07a0";
-"0x5564ea8e07a0"->"0x5564ea9e6920";
-"0x5564ea8e07a0"->"0x5564eaae0630";
-"0x5564ea81bac0"->"0x5564eab79190";
-"0x5564eab79190"->"0x5564eaa3be70";
-"0x5564eab79190"->"0x5564ea7ad720";
-"0x5564ea6201d0"->"0x5564ea9a8c80";
-"0x5564ea9a8c80"->"0x5564eabca580";
-"0x5564eabca580"->"0x5564eac56180";
-"0x5564eabca580"->"0x5564eac5cba0";
-"0x5564ea9a8c80"->"0x5564eac62360";
-"0x5564eac62360"->"0x5564eac66950";
-"0x5564eac62360"->"0x5564eac853e0";
-"0x5564ea3e84f0"->"0x5564ea5ff1b0";
-"0x5564ea5ff1b0"->"0x5564ea61de30";
-"0x5564ea61de30"->"0x5564ead152a0";
-"0x5564ead152a0"->"0x5564ead40f00";
-"0x5564ead152a0"->"0x5564ead42d20";
-"0x5564ea61de30"->"0x5564ead296e0";
-"0x5564ead296e0"->"0x5564ead74ba0";
-"0x5564ead296e0"->"0x5564ead72c10";
-"0x5564ea5ff1b0"->"0x5564ead70770";
-"0x5564ead70770"->"0x5564ea51de50";
-"0x5564ea51de50"->"0x5564eadc4a20";
-"0x5564ea51de50"->"0x5564eadd1760";
-"0x5564ead70770"->"0x5564eada09f0";
-"0x5564eada09f0"->"0x5564eae16a90";
-"0x5564eada09f0"->"0x5564eae0fa60";
-"0x5564e9fc48b0"->"0x5564eae26910";
-"0x5564eae26910"->"0x5564eaeface0";
-"0x5564eaeface0"->"0x5564eaf683f0";
-"0x5564eaf683f0"->"0x5564eb0a7ca0";
-"0x5564eb0a7ca0"->"0x5564eb0fc970";
-"0x5564eb0a7ca0"->"0x5564eb0eadf0";
-"0x5564eaf683f0"->"0x5564eb0c4dd0";
-"0x5564eb0c4dd0"->"0x5564eb11f750";
-"0x5564eb0c4dd0"->"0x5564eb117cb0";
-"0x5564eaeface0"->"0x5564eb120610";
-"0x5564eb120610"->"0x5564eb148690";
-"0x5564eb148690"->"0x5564eb161990";
-"0x5564eb148690"->"0x5564eb161dc0";
-"0x5564eb120610"->"0x5564eb1770b0";
-"0x5564eb1770b0"->"0x5564eb1a9970";
-"0x5564eb1770b0"->"0x5564eb19a0c0";
-"0x5564eae26910"->"0x5564eb1dda00";
-"0x5564eb1dda00"->"0x5564eb240b50";
-"0x5564eb240b50"->"0x5564eb2efe60";
-"0x5564eb2efe60"->"0x5564eb412ed0";
-"0x5564eb2efe60"->"0x5564eb2f30b0";
-"0x5564eb240b50"->"0x5564eb2f2a20";
-"0x5564eb2f2a20"->"0x5564eb369070";
-"0x5564eb2f2a20"->"0x5564eb43a660";
-"0x5564eb1dda00"->"0x5564eb2406a0";
-"0x5564eb2406a0"->"0x5564eb493d60";
-"0x5564eb493d60"->"0x5564eb62be90";
-"0x5564eb493d60"->"0x5564eb52e5f0";
-"0x5564eb2406a0"->"0x5564eb590d20";
-"0x5564eb590d20"->"0x5564eb68d900";
-"0x5564eb590d20"->"0x5564eb6f6690";
+"0x558b2b2bd8b0"->"0x558b2b6e1510";
+"0x558b2b6e1510"->"0x558b2b9191f0";
+"0x558b2b9191f0"->"0x558b2bb14b80";
+"0x558b2bb14b80"->"0x558b2bbd9860";
+"0x558b2bbd9860"->"0x558b2bcdf9e0";
+"0x558b2bbd9860"->"0x558b2bdd96f0";
+"0x558b2bb14b80"->"0x558b2be722a0";
+"0x558b2be722a0"->"0x558b2bd34f30";
+"0x558b2be722a0"->"0x558b2baa67e0";
+"0x558b2b9191f0"->"0x558b2bca1d40";
+"0x558b2bca1d40"->"0x558b2bad6bf0";
+"0x558b2bad6bf0"->"0x558b2bf4f330";
+"0x558b2bad6bf0"->"0x558b2bf55da0";
+"0x558b2bca1d40"->"0x558b2bf5b560";
+"0x558b2bf5b560"->"0x558b2bf5fc40";
+"0x558b2bf5b560"->"0x558b2bf77af0";
+"0x558b2b6e1510"->"0x558b2b8f83b0";
+"0x558b2b8f83b0"->"0x558b2b916ea0";
+"0x558b2b916ea0"->"0x558b2c00e630";
+"0x558b2c00e630"->"0x558b2c03a2e0";
+"0x558b2c00e630"->"0x558b2c03c120";
+"0x558b2b916ea0"->"0x558b2c022ac0";
+"0x558b2c022ac0"->"0x558b2c06dfd0";
+"0x558b2c022ac0"->"0x558b2c06bf50";
+"0x558b2b8f83b0"->"0x558b2b9291a0";
+"0x558b2b9291a0"->"0x558b2bf88250";
+"0x558b2bf88250"->"0x558b2c0c0010";
+"0x558b2bf88250"->"0x558b2c0cb1a0";
+"0x558b2b9291a0"->"0x558b2c0d46f0";
+"0x558b2c0d46f0"->"0x558b2c110070";
+"0x558b2c0d46f0"->"0x558b2c109040";
+"0x558b2b2bd8b0"->"0x558b2c11ff60";
+"0x558b2c11ff60"->"0x558b2c1f4380";
+"0x558b2c1f4380"->"0x558b2c261a90";
+"0x558b2c261a90"->"0x558b2c3a1430";
+"0x558b2c3a1430"->"0x558b2c3f60b0";
+"0x558b2c3a1430"->"0x558b2c3e4530";
+"0x558b2c261a90"->"0x558b2c2794b0";
+"0x558b2c2794b0"->"0x558b2c419120";
+"0x558b2c2794b0"->"0x558b2c3e38a0";
+"0x558b2c1f4380"->"0x558b2c419ef0";
+"0x558b2c419ef0"->"0x558b2c43bae0";
+"0x558b2c43bae0"->"0x558b2c45b350";
+"0x558b2c43bae0"->"0x558b2c45b7a0";
+"0x558b2c419ef0"->"0x558b2c470ac0";
+"0x558b2c470ac0"->"0x558b2c4a32e0";
+"0x558b2c470ac0"->"0x558b2c493a30";
+"0x558b2c11ff60"->"0x558b2c4d73c0";
+"0x558b2c4d73c0"->"0x558b2c53a510";
+"0x558b2c53a510"->"0x558b2c5e9870";
+"0x558b2c5e9870"->"0x558b2c5eb1c0";
+"0x558b2c5e9870"->"0x558b2c55dc60";
+"0x558b2c53a510"->"0x558b2c717110";
+"0x558b2c717110"->"0x558b2c662b20";
+"0x558b2c717110"->"0x558b2c734020";
+"0x558b2c4d73c0"->"0x558b2c53a060";
+"0x558b2c53a060"->"0x558b2c78d860";
+"0x558b2c78d860"->"0x558b2c925990";
+"0x558b2c78d860"->"0x558b2c8280f0";
+"0x558b2c53a060"->"0x558b2c88a870";
+"0x558b2c88a870"->"0x558b2c9874d0";
+"0x558b2c88a870"->"0x558b2c9f0260";
 }

@@ -2,10 +2,11 @@ from os import X_OK
 import pandas as pd
 import math
 
-def normalize_data(data):
+def normalize_data(data,method):
     # Assuming same lines from your example
-    cols_to_norm = ['forehead_width_cm','forehead_height_cm']
-    data[cols_to_norm] = data[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+    if method!="decision_tree":
+        cols_to_norm = ['forehead_width_cm','forehead_height_cm']
+        data[cols_to_norm] = data[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
     return data
 
 def update_gender(df,method):
@@ -15,22 +16,12 @@ def update_gender(df,method):
     elif method=="logistic":
         df.loc[df["gender"] == 'Male', "gender"] = 0
         df.loc[df["gender"] == 'Female', "gender"] = 1
-    else:
-        df.loc[df["gender"] == 'Male', "gender"] = 1
-        df.loc[df["gender"] == 'Female', "gender"] = 2
 
 
 def plot_data(data_x,data_y):
     pd.plt.plot(data_x,data_y,'*')
     pd.plt.show()
 
-def normalize_features(x_features):
-    for column in x_features.columns[1:]:
-        low_value = x_features[column].max()-x_features[column].min() if x_features[column].max()-x_features[column].min() != 0 else 0
-        if low_value == 0:
-            return 0
-        else:
-            return (x_features[column]-x_features[column].min())/low_value
 
 ##################
 # MAIN FUNCTIONS #
@@ -39,7 +30,7 @@ def normalize_features(x_features):
 def read_file_columns(method,file = 'gender_classification.csv'):
     data = pd.read_csv(file)
     update_gender(data,method)
-    data = normalize_data(data)
+    data = normalize_data(data,method)
     return data
 
 def get_x_y(df):
