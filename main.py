@@ -4,7 +4,6 @@ import knn as knn
 import data as d
 import aux as a
 import numpy as np
-from scipy import stats
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn import tree
@@ -28,13 +27,25 @@ def algorithm_svm1(epochs,num_tests,k=7):
     for i in range(num_tests):
         alpha = 0.05
         constant = 1
-        error_train_list,error_valid_list,w = svm.regression(
+        error_train_list,error_valid_list = svm.regression(
             x_train_features_svm,y_train_values_svm,
             x_valid_features_svm,y_valid_values_svm,alpha,epochs,constant,k)
         
         a.plot_error(epochs,error_train_list,error_valid_list,f"svm{i}")
+        
+def algorithm_svm2(epochs,num_tests,k=7):
+    for i in range(num_tests):
+        alpha = 0.05
+        constant = 1
+        error_train_list,error_valid_list,error_test_list = svm.regression2(
+            x_train_features_svm,y_train_values_svm,
+            x_valid_features_svm,y_valid_values_svm,
+            x_test_features_svm,y_test_values_svm,alpha,epochs,constant,k)
+        
+        a.plot_error2(epochs,error_train_list,error_valid_list,error_test_list,f"svm_test{i}")
 
-#algorithm_svm1(500, 1)
+""" algorithm_svm1(300, 2)
+algorithm_svm2(300, 2) """
 
 #############################
 #### LOGISTIC REGRESSION ####
@@ -57,7 +68,18 @@ def algorithm_logistic1(epochs,num_tests,k=7):
         
         a.plot_error(epochs,error_train_list,error_valid_list,f"logistic{i}")
 
-#algorithm_logistic1(500, 1)
+def algorithm_logistic2(epochs,num_tests,k=7):
+    for i in range(num_tests):
+        alpha = 0.05
+        error_train_list,error_valid_list,error_test_list = log.regression2(
+            x_train_features_log,y_train_values_log,
+            x_valid_features_log,y_valid_values_log,
+            x_test_features_log,y_test_values_log,alpha,epochs,k)
+        
+        a.plot_error2(epochs,error_train_list,error_valid_list,error_test_list,f"logistic_test{i}")
+
+""" algorithm_logistic1(300, 2)
+algorithm_logistic2(300, 2) """
 
 #############################
 ############ KNN ############
@@ -76,9 +98,8 @@ errors = algorithm_knn(5)
 print(np.var(errors))
 print(np.mean(errors))
 
-sns.kdeplot(errors, shade = True)
-plt.show()
-
+""" sns.kdeplot(errors, shade = True)
+plt.show() """
 
 ############################
 ###### DECISION TREES ######

@@ -43,4 +43,23 @@ def regression(x_train, y_train, x_valid, y_valid, alpha, epochs, c, k):
         temp_valid = error(w, x_valid, y_valid, b, c)
         train_list.append(temp_train)
         valid_list.append(temp_valid)
-    return train_list, valid_list,w
+    return train_list, valid_list
+
+def regression2(x_train, y_train, x_valid, y_valid, x_test, y_test, alpha, epochs, c, k):
+    w = list(random.rand(k))
+    b = random.rand()
+    train_list = []
+    valid_list = []
+    test_list = []
+    for i in range(epochs):
+        p = random.randint(len(x_train))
+        x_list = x_train.iloc[p].tolist()
+        y_list = y_train.iloc[p]
+        w, b = derivates(y_list, w, x_list, b, c, alpha, epochs)
+        temp_train = error(w, x_train, y_train, b, c)
+        temp_valid = error(w, x_valid, y_valid, b, c)
+        temp_test = error(w, x_test, y_test, b, c)
+        train_list.append(temp_train)
+        valid_list.append(temp_valid)
+        test_list.append(temp_test)
+    return train_list, valid_list, test_list

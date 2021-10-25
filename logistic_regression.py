@@ -28,9 +28,7 @@ def derivates(y, w, x, b,k):
     for i in range(k):
         for j in range(n):
             x_temp = np.array(x.loc[j])
-            #dw[i] += (e ** h(w, x_temp, b) * w[i]) / (1 + e ** (h(w, x_temp, b)))
             dw[i] += (h(w, x_temp, b) - y[i])*x_temp[i]
-        #db += (e ** h(w, x_temp, b)) / (1 + e ** (h(w, x_temp, b)))
         dw[i] /= n
         db += h(w, x_temp, b) - y[i]
     return dw, db/n
@@ -53,3 +51,20 @@ def regression(x_train, y_train, x_valid, y_valid, alpha, epochs, k):
         train_list.append(temp_train)
         valid_list.append(temp_valid)
     return train_list, valid_list
+
+def regression2(x_train, y_train, x_valid, y_valid, x_test, y_test, alpha, epochs, k):
+    w = list(random.rand(k))
+    b = random.rand()
+    train_list = []
+    valid_list = []
+    test_list = []
+    for i in range(epochs):
+        dw, db = derivates(y_train, w, x_train, b,k)
+        w,b = update(w,b,dw,db,alpha,k)
+        temp_train = error(w, x_train, y_train, b)
+        temp_valid = error(w, x_valid, y_valid, b)
+        temp_test = error(w, x_test, y_test, b)
+        train_list.append(temp_train)
+        valid_list.append(temp_valid)
+        test_list.append(temp_test)
+    return train_list, valid_list, test_list
