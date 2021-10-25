@@ -88,18 +88,22 @@ algorithm_logistic2(300, 2) """
 def algorithm_knn(neighbors):
     experiments = 10
     errors_list = []
+    confusion_list = []
     for i in range(experiments):
         df_exp, df_test = d.cross_validation(df_log, experiments, i)
-        number_errors = knn.knn(df_exp.to_numpy()[:,1:], df_test.to_numpy()[:,1:], neighbors)
+        number_errors, temp_mat = knn.knn(df_exp.to_numpy()[:,1:], df_test.to_numpy()[:,1:], neighbors)
         errors_list.append(number_errors)
-    return errors_list
+        confusion_list.append(temp_mat)
+    accuracy_score = confusion_list[0]
+    print("     F    M")
+    print("F  ", accuracy_score[0])
+    print("M  ", accuracy_score[1])
+    accuracy = (accuracy_score[0][0] + accuracy_score[1][1]) / (sum(accuracy_score[0]) + sum(accuracy_score[1]))
+    print("Accuracy: ", accuracy)
+    #a.plot_error_knn(errors_list)
 
-errors = algorithm_knn(5)
-print(np.var(errors))
-print(np.mean(errors))
+algorithm_knn(5)
 
-""" sns.kdeplot(errors, shade = True)
-plt.show() """
 
 ############################
 ###### DECISION TREES ######

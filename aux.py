@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
 font1 = {'family':'serif','size':20}
 font2 = {'family':'serif','size':15}
@@ -29,6 +31,15 @@ def plot_error2(epochs,error_train_list,error_valid_list,error_test_list,name):
     plt.ylabel("Error",fontdict=font2)
     #plt.show()
     plt.savefig("plots/plot_"+name+".png")
+
+def plot_error_knn(errors):
+    sns.kdeplot(errors, shade = True)
+    plt.title("Density vs KNN error", fontdict = font1)
+    plt.axvline(np.mean(errors), color = 'red', label = "Promedio")
+    plt.axvline(np.var(errors), color = 'blue', label = "Varianza")
+    plt.xlabel("Error", fontdict=font2)
+    plt.legend()
+    plt.show()
     
 def save_files(alpha_nums,const_nums):
     alpha_file = open("files/alpha_nums.txt", "w")
